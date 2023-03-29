@@ -13,8 +13,8 @@ int *ft_rrange(int start, int end)
 	{
 		while (i < n)
 		{
-			range[i] = start;
-			start++;
+			range[i] = end;
+			end--;
 			i++;
 		}
 	}
@@ -54,3 +54,15 @@ int		*ft_rrange(int start, int end)
 	return (tab);
 }
  */
+
+// #include <stdio.h>
+// int main()
+// {
+// 	int i = 0;
+// 	int *arr = ft_rrange(1,-3);
+// 	while(i < 4)
+// 	{
+// 		printf("%d",arr[i]);
+// 		i++;
+// 	}
+// }
