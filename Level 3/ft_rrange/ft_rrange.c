@@ -1,24 +1,28 @@
 #include <stdlib.h>
 
-int *ft_rrange(int start, int end)
+int     *ft_range(int start, int end)
 {
-	int *range;
+	int size = 0;
+	int *arr;
+	int start2 = start;
+	
+	if(start > end)
+		size = start - end;
+	else
+		size = end - start;
+	arr = (int*)malloc(sizeof(int)*(size + 1));
 	int i = 0;
-	int n = end - start + 1;
-
-	if (start > end)
-		return (ft_rrange(end, start));
-	range = (int *)malloc(sizeof(int) * n);
-	if (range)
+	while(size >= 0)
 	{
-		while (i < n)
-		{
-			range[i] = end;
+		arr[i] = end;
+		if(start2 > end)
+			end++;
+		else
 			end--;
-			i++;
-		}
+		size--;
+		i++;
 	}
-	return (range);
+	return arr;
 }
 
 /* #include <stdlib.h>
@@ -59,7 +63,7 @@ int		*ft_rrange(int start, int end)
 // int main()
 // {
 // 	int i = 0;
-// 	int *arr = ft_rrange(1,-3);
+// 	int *arr = ft_range(0,-3);
 // 	while(i < 4)
 // 	{
 // 		printf("%d",arr[i]);
