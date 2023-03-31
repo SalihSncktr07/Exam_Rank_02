@@ -1,60 +1,29 @@
 #include <stdlib.h>
 
-int		ft_abs(int x)
+int     *ft_range(int start, int end)
 {
-	if (x < 0)
-		return (-x);
-	return (x);
+    int i = 0;
+    int size;
+    size = (start <= end) ? (end - start + 1) : (start - end + 1);
+
+    int *res = (int *)malloc(sizeof(int) * size);
+    if(!res)
+        return NULL;
+
+    while(i < size)
+    {
+        res[i] = start;
+        start += (start <= end) ? 1 : -1;
+        i++;
+    }
+    return res;
 }
-
-int		*ft_range(int start, int end)
-{
-	int i;
-	int *tab;
-
-	i = 0;
-	tab = (int*)malloc(sizeof(int) * ft_abs(start - end) + 1);
-	while (start < end)
-	{
-		tab[i] = start;
-		start++;
-		i++;
-	}
-	tab[i] = start;
-	while (start > end)
-	{
-		tab[i] = start;
-		start--;
-		i++;
-	}
-	tab[i] = start;
-	return (tab);
-}
-
-/*#include <stdlib.h>
-
-int	*ft_range(int start, int end)
-{
-	int	*res;
-	int	size;
-	int	i;
-
-	size = (end - start) + 1;
-	i = 0;
-	res = (int *) malloc(size * sizeof(int));
-	if (!res)
-		return (NULL);
-	while (i++ < size)
-		res[i] = start + i;
-	return (res);
-}
-*/
 
 // #include <stdio.h>
 // int main()
 // {
 // 	int i = 0;
-// 	int *arr = ft_rrange(1,-3);
+// 	int *arr = ft_range(-1, 2);
 // 	while(i < 4)
 // 	{
 // 		printf("%d",arr[i]);
