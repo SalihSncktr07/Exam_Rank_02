@@ -1,6 +1,6 @@
 int is_power_of_2(unsigned int n)
 {
-	int number = 1;
+	unsigned long number = 1;
 	
 	while(number <= n)
 	{
